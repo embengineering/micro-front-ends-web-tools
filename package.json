@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "http://embengineering.com/micro-front-ends-web-tools",
   "dependencies": {
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-scripts": "1.1.4"

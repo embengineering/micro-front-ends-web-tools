@@ -1,11 +1,7 @@
-// styles
 import './index.css';
-
-// web components
-import './navbar';
-import './tally';
-
-// other stuff
 import registerServiceWorker from './registerServiceWorker';
+import { loadManifest } from './utilities';
 
 registerServiceWorker();
+loadManifest('http://embengineering.com/micro-front-ends-standard-nav-bar');
+loadManifest('http://embengineering.com/micro-front-ends-tally');
