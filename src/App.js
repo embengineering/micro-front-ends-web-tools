@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+console.log(`PUBLIC_URL: ${process.env.PUBLIC_URL}`);
 
 const App = () =>
   <Router>
