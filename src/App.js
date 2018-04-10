@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const App = () =>
-  <Router basename={'/micro-front-ends-web-tools'}>
+  <Router>
     <div>
       <Route exact path={`${process.env.PUBLIC_URL}/`} component={Tally} />
       <Route exact path={`${process.env.PUBLIC_URL}/Tally`} component={Tally} />
-      <Route path={`${process.env.PUBLIC_URL}/404`}component={Page404} />
+      <Route path={`${process.env.PUBLIC_URL}/404`} component={Page404} />
     </div>
   </Router>;
 
