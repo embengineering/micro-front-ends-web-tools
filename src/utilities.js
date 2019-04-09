@@ -22,7 +22,10 @@ const handleSucess = (location, { data: manifest }) => {
 
 const loadManifest = location =>
     axios.get(`${location}/asset-manifest.json`, {
-        headers: { 'Cache-Control': 'no-cache' }
+        headers: {
+            'Cache-Control': 'no-cache',
+            'Access-Control-Allow-Origin': '*'
+        }
     })
     .then(handleSucess.bind(this, location))
     .catch(handleError);
