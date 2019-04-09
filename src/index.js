@@ -14,9 +14,9 @@ const render = location => {
 }
 
 // load micro frontends manifests
-loadManifest('https://embengineering.com/micro-front-ends-standard-nav-bar');
-loadManifest('https://embengineering.com/micro-front-ends-tally');
-loadManifest('https://embengineering.com/micro-front-ends-error-pages');
+loadManifest('/micro-front-ends-standard-nav-bar');
+loadManifest('/micro-front-ends-tally');
+loadManifest('/micro-front-ends-error-pages');
 
 render(history.location); // initialize the app
 history.listen(render); // listen for client-side navigation
