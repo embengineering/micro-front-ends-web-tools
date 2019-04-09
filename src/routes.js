@@ -1,15 +1,8 @@
-import history from './history';
-
-const onClick = event => {
-  event.preventDefault(); // prevent full page reload
-  history.push(event.currentTarget.getAttribute('href')); // do SPA navigation
-}
-
 const navTitle = 'Web Tools'
 
 const navItems = JSON.stringify([
-  { "active": false, "label": "Tally", "href": "/tally", onClick:onClick },
-  { "active": false, "label": "404 Page", "href": "/404", onClick:onClick }
+  { "active": false, "label": "Tally", "href": "/tally" },
+  { "active": false, "label": "404 Page", "href": "/404" }
 ]);
 
 const navBar = `
@@ -51,7 +44,7 @@ const routes = {
       },
     },
     {
-      path: '*', // wildcard route (must go last)
+      path: '(.*)', // wildcard route (must go last)
       action() {
         return {
           title: 'Page Not Found',
