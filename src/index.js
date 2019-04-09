@@ -4,33 +4,18 @@ import UniversalRouter from 'universal-router';
 import routes from './routes';
 import history from './history';
 
-const bindNavLinks = () => {
-  document.querySelectorAll('.nav-link').forEach(navLink => {
-    navLink.addEventListener('click', onClick)
-  });
-}
-
-const onClick = event => {
-  event.preventDefault(); // prevent full page reload
-  history.push(event.currentTarget.getAttribute('href')); // do SPA navigation
-}
-
-const render = location => {
-  const router = new UniversalRouter(routes);
-  router.resolve(location.pathname).then(route => {
-    document.title = route.title;
-    document.querySelector('#main').innerHTML = route.html;
-    bindNavLinks();
-  });
-}
+const baseUrl = history.location ? history.location.pathname : '/';
 
 // load micro frontends manifests
 loadManifest('/micro-front-ends-standard-nav-bar');
 loadManifest('/micro-front-ends-tally');
 loadManifest('/micro-front-ends-error-pages');
 
-render(history.location); // initialize the app
-history.listen(render); // listen for client-side navigation
+// initialize the app
+render({ pathname: `${baseUrl}tally` });
+
+// listen for client-side navigation
+history.listen(render);
 
 // prevent full refresh on nav links click
 document.onreadystatechange = function () {
@@ -38,3 +23,23 @@ document.onreadystatechange = function () {
     bindNavLinks();
   }
 };
+
+function bindNavLinks() {
+  document.querySelectorAll('.nav-link').forEach(navLink => {
+    navLink.addEventListener('click', onClick)
+  });
+}
+
+function onClick(event) {
+  event.preventDefault(); // prevent full page reload
+  history.push(event.currentTarget.getAttribute('href')); // do SPA navigation
+}
+
+function render(location) {
+  const router = new UniversalRouter(routes);
+  router.resolve(location.pathname).then(route => {
+    document.title = route.title;
+    document.querySelector('#main').innerHTML = route.html;
+    bindNavLinks();
+  });
+}
