@@ -1,5 +1,6 @@
 {
   "name": "micro-front-ends-main",
+  "description": "Experiment for integrating micro front-ends hosted in Github Pages in separate repositories",
   "version": "0.1.0",
   "private": true,
   "homepage": "http://embengineering.com/micro-front-ends-web-tools",
