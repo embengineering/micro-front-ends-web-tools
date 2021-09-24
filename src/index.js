@@ -8,7 +8,7 @@ const baseUrl = history.location ? history.location.pathname : '/';
 
 // load micro frontends manifests
 loadManifest('/micro-front-ends-standard-nav-bar');
-loadManifest('/micro-front-ends-tally');
+loadManifest('/tally');
 loadManifest('/micro-front-ends-error-pages');
 
 // initialize the app
