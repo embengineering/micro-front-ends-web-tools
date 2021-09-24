@@ -7,14 +7,16 @@ const handleError = error =>
 const handleSucess = (location, { data: manifest }) => {
     console.log('Manifest configuration loaded:', manifest);
 
+    var files = manifest.files || manifest;
+
     let style = document.createElement('link');
     let script = document.createElement('script');
 
     style.rel = 'stylesheet';
-    style.href = `${location}/${manifest['main.css']}`;
+    style.href = `${location}/${files['main.css']}`;
 
     script.type = 'text/javascript';
-    script.src = `${location}/${manifest['main.js']}`;
+    script.src = `${location}/${files['main.js']}`;
 
     document.head.appendChild(style);
     document.body.appendChild(script);
